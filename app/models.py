@@ -1,5 +1,5 @@
 from .database import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 
 class About(Base):
     __tablename__ = "about"
@@ -21,6 +21,8 @@ class Card(Base):
     description_ru = Column(String)
     description_en = Column(String)
     image_path = Column(String)
+    is_image = Column(Boolean, default=True) 
+    video_link = Column(String, nullable=True) 
     
     
 from sqlalchemy import Column, Integer, String, ForeignKey

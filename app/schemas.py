@@ -34,6 +34,8 @@ class CardBase(BaseModel):
     description_uz: str
     description_ru: str
     description_en: str
+    is_image: bool = True
+    video_link: Optional[str] = None
 
 class CardCreate(CardBase):
     pass

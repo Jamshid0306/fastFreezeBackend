@@ -29,6 +29,8 @@ def get_cards(db: Session = Depends(get_db)):
             "description_uz": c.description_uz,
             "description_ru": c.description_ru,
             "description_en": c.description_en,
+            "is_image": c.is_image,
+            "video_link": c.video_link,
             "image_url": f"/images/{os.path.basename(c.image_path)}" if c.image_path else None
         })
     return result
@@ -42,6 +44,8 @@ async def create_card(
     description_uz: str = Form(...),
     description_ru: str = Form(...),
     description_en: str = Form(...),
+    is_image: bool = Form(True),
+    video_link: str = Form(None),
     file: UploadFile = File(...),
     db: Session = Depends(get_db)
 ):
@@ -59,6 +63,8 @@ async def create_card(
         description_uz=description_uz,
         description_ru=description_ru,
         description_en=description_en,
+        is_image=is_image,
+        video_link=video_link,
         image_path=file_location
     )
 
@@ -78,6 +84,8 @@ async def update_card(
     description_uz: str = Form(...),
     description_ru: str = Form(...),
     description_en: str = Form(...),
+    is_image: bool = Form(True),
+    video_link: str = Form(None),
     file: UploadFile = File(None),
     db: Session = Depends(get_db)
 ):
@@ -96,6 +104,8 @@ async def update_card(
     card.title_uz = title_uz
     card.title_ru = title_ru
     card.title_en = title_en
+    card.is_image = is_image
+    card.video_link = video_link
     card.description_uz = description_uz
     card.description_ru = description_ru
     card.description_en = description_en

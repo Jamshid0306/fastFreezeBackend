@@ -1,8 +1,8 @@
-"""add cascade delete to projects
+"""add is_image and video_link to cards
 
-Revision ID: f624b9a2e887
-Revises: 9e6b60f20e5b
-Create Date: 2025-10-05 22:38:35.921843
+Revision ID: db5a82998978
+Revises: f624b9a2e887
+Create Date: 2025-11-02 10:34:30.333051
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'f624b9a2e887'
-down_revision: Union[str, Sequence[str], None] = '9e6b60f20e5b'
+revision: str = 'db5a82998978'
+down_revision: Union[str, Sequence[str], None] = 'f624b9a2e887'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
